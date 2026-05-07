@@ -75,7 +75,7 @@ This project implements core and advanced database concepts including:
 
 # 🗂️ Repository Contents
 
-* `DB_PROJECT/`
+* `WindowsFromsApplication1/`
 
   * Contains all C# Windows Forms source code
 
