@@ -16,20 +16,21 @@ namespace DB__PROJECT
         public VotingForm(int vId, int cId)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             voterId = vId;
             constituencyId = cId;
 
             this.Load += VotingForm_Load;
         }
 
-        // LOAD FORM
+        // FORM LOAD
         private void VotingForm_Load(object sender, EventArgs e)
         {
             LoadElections();
         }
 
-        // LAOD ELECTIONS
-
+        // LOAD ELECTIONS
         private void LoadElections()
         {
             SqlDataAdapter da = new SqlDataAdapter(
@@ -38,40 +39,47 @@ namespace DB__PROJECT
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            cmbElection.SelectedIndexChanged -= cmbElection_SelectedIndexChanged;
+            cmbElection.DataSource = null;
+            cmbElection.DisplayMember = "";
+            cmbElection.ValueMember = "";
 
             cmbElection.DataSource = dt;
             cmbElection.DisplayMember = "title";
             cmbElection.ValueMember = "election_id";
 
-            cmbElection.SelectedIndexChanged += cmbElection_SelectedIndexChanged;
+            // 🔥 IMPORTANT FIX: use correct event
+            cmbElection.SelectionChangeCommitted -= cmbElection_SelectionChangeCommitted;
+            cmbElection.SelectionChangeCommitted += cmbElection_SelectionChangeCommitted;
 
             if (dt.Rows.Count > 0)
-            {
                 cmbElection.SelectedIndex = 0;
-                LoadCandidates(); // safe call
-            }
+            
         }
 
-        //ELECTION CHANGE 
-        private void cmbElection_SelectedIndexChanged(object sender, EventArgs e)
+        // ELECTION CHANGE EVENT (FIXED)
+        private void cmbElection_SelectionChangeCommitted(object sender, EventArgs e)
         {
             LoadCandidates();
         }
 
-        // LOAD CANDIDATES 
+        // LOAD CANDIDATES
         private void LoadCandidates()
         {
-            if (cmbElection.SelectedValue == null) return;
-            if (cmbElection.SelectedValue is DataRowView) return;
+            MessageBox.Show("EID = " + cmbElection.SelectedValue +
+                "\nCID = " + constituencyId);
 
-            int eid = Convert.ToInt32(cmbElection.SelectedValue);
+            if (cmbElection.SelectedValue == null)
+                return;
+
+            int eid;
+
+            if (!int.TryParse(cmbElection.SelectedValue.ToString(), out eid))
+                return;
 
             SqlDataAdapter da = new SqlDataAdapter(
-                @"SELECT candidate_id, name 
-                  FROM CANDIDATE 
-                  WHERE election_id = @eid 
-                  AND constituency_id = @cid", con);
+     @"SELECT candidate_id, name
+      FROM CANDIDATE
+      WHERE election_id = @eid", con);
 
             da.SelectCommand.Parameters.AddWithValue("@eid", eid);
             da.SelectCommand.Parameters.AddWithValue("@cid", constituencyId);
@@ -79,14 +87,16 @@ namespace DB__PROJECT
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            
-            
+            cmbCandidate.DataSource = null;
             cmbCandidate.DataSource = dt;
             cmbCandidate.DisplayMember = "name";
             cmbCandidate.ValueMember = "candidate_id";
+
+            cmbCandidate.SelectedIndex = -1;
+
         }
 
-        // VOTE BUTTON CLICK EVENT
+        // VOTE BUTTON
         private void btnVote_Click(object sender, EventArgs e)
         {
             if (cmbCandidate.SelectedValue == null || cmbElection.SelectedValue == null)
@@ -99,6 +109,7 @@ namespace DB__PROJECT
             {
                 con.Open();
 
+                // CHECK ALREADY VOTED
                 SqlCommand checkCmd = new SqlCommand(
                     "SELECT COUNT(*) FROM VOTE WHERE voter_id=@v AND election_id=@e", con);
 
@@ -113,6 +124,7 @@ namespace DB__PROJECT
                     return;
                 }
 
+                // INSERT VOTE
                 SqlCommand cmd = new SqlCommand(
                     "INSERT INTO VOTE (voter_id, candidate_id, election_id) VALUES (@v,@c,@e)", con);
 
@@ -132,6 +144,12 @@ namespace DB__PROJECT
             {
                 con.Close();
             }
+        }
+
+        // OPTIONAL (NOT USED BUT SAFE)
+        private void cmbCandidate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

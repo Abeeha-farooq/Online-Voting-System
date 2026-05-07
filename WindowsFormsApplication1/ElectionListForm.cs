@@ -12,6 +12,7 @@ namespace DB__PROJECT
 
         public ElectionListForm()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.Load += ElectionListForm_Load;
         }
@@ -19,6 +20,7 @@ namespace DB__PROJECT
         //  FORM LOAD EVENT
         private void ElectionListForm_Load(object sender, EventArgs e)
         {
+
             LoadElections();
         }
 

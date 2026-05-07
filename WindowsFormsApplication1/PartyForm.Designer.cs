@@ -49,7 +49,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(252, 100);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 22);
+            this.txtName.Size = new System.Drawing.Size(121, 22);
             this.txtName.TabIndex = 0;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
@@ -57,28 +57,28 @@
             // 
             this.txtSymbol.Location = new System.Drawing.Point(692, 121);
             this.txtSymbol.Name = "txtSymbol";
-            this.txtSymbol.Size = new System.Drawing.Size(100, 22);
+            this.txtSymbol.Size = new System.Drawing.Size(122, 22);
             this.txtSymbol.TabIndex = 1;
             // 
             // txtLeader
             // 
             this.txtLeader.Location = new System.Drawing.Point(252, 141);
             this.txtLeader.Name = "txtLeader";
-            this.txtLeader.Size = new System.Drawing.Size(100, 22);
+            this.txtLeader.Size = new System.Drawing.Size(121, 22);
             this.txtLeader.TabIndex = 2;
             // 
             // txtYear
             // 
             this.txtYear.Location = new System.Drawing.Point(692, 162);
             this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(100, 22);
+            this.txtYear.Size = new System.Drawing.Size(122, 22);
             this.txtYear.TabIndex = 3;
             // 
             // txtHQ
             // 
             this.txtHQ.Location = new System.Drawing.Point(252, 182);
             this.txtHQ.Name = "txtHQ";
-            this.txtHQ.Size = new System.Drawing.Size(100, 22);
+            this.txtHQ.Size = new System.Drawing.Size(121, 22);
             this.txtHQ.TabIndex = 4;
             // 
             // btnAdd

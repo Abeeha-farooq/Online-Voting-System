@@ -44,9 +44,10 @@
             this.cmbElection.FormattingEnabled = true;
             this.cmbElection.Location = new System.Drawing.Point(244, 149);
             this.cmbElection.Name = "cmbElection";
-            this.cmbElection.Size = new System.Drawing.Size(121, 24);
+            this.cmbElection.Size = new System.Drawing.Size(175, 24);
             this.cmbElection.TabIndex = 0;
-            this.cmbElection.SelectedIndexChanged += new System.EventHandler(this.cmbElection_SelectedIndexChanged);
+            this.cmbElection.SelectionChangeCommitted += new System.EventHandler(this.cmbElection_SelectionChangeCommitted);
+            this.cmbElection.Click += new System.EventHandler(this.cmbElection_SelectionChangeCommitted);
             // 
             // btnVote
             // 
@@ -76,8 +77,9 @@
             this.cmbCandidate.FormattingEnabled = true;
             this.cmbCandidate.Location = new System.Drawing.Point(244, 209);
             this.cmbCandidate.Name = "cmbCandidate";
-            this.cmbCandidate.Size = new System.Drawing.Size(121, 24);
+            this.cmbCandidate.Size = new System.Drawing.Size(175, 24);
             this.cmbCandidate.TabIndex = 4;
+            this.cmbCandidate.Click += new System.EventHandler(this.cmbCandidate_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -106,9 +108,10 @@
             this.listBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listBox1.BackColor = System.Drawing.Color.DimGray;
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
             this.listBox1.Items.AddRange(new object[] {
             "",
             "                           TERMS & INSTRUCTIONS",
@@ -129,9 +132,9 @@
             "",
             "",
             "     *Note: Your vote is secure, confidential, and final."});
-            this.listBox1.Location = new System.Drawing.Point(605, 119);
+            this.listBox1.Location = new System.Drawing.Point(568, 127);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(314, 286);
+            this.listBox1.Size = new System.Drawing.Size(385, 272);
             this.listBox1.TabIndex = 15;
             // 
             // checkBox1
@@ -144,7 +147,6 @@
             this.checkBox1.TabIndex = 16;
             this.checkBox1.Text = "I agree to the given terms and conditions.";
             this.checkBox1.UseVisualStyleBackColor = true;
-            
             // 
             // checkBox2
             // 

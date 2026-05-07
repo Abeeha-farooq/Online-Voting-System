@@ -10,6 +10,7 @@ namespace DB__PROJECT
     {
         public CandidateForm()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
            
         }

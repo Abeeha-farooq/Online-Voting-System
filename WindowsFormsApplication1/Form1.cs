@@ -14,7 +14,7 @@ namespace DB__PROJECT
         public Form1()
         {
             InitializeComponent();
-
+            this.StartPosition = FormStartPosition.CenterScreen;
             //  manually bind events 
             this.Load += Form1_Load;
             rbAdmin.CheckedChanged += rbAdmin_CheckedChanged;

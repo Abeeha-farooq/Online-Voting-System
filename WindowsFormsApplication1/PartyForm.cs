@@ -12,6 +12,7 @@ namespace DB__PROJECT
 
         public PartyForm()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
 

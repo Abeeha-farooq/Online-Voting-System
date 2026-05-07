@@ -11,6 +11,7 @@ namespace DB__PROJECT
 
         public AdminDashboard()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.Load += AdminDashboard_Load; // load event attach
         }

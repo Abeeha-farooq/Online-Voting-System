@@ -49,7 +49,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(289, 121);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 22);
+            this.txtName.Size = new System.Drawing.Size(121, 22);
             this.txtName.TabIndex = 0;
             // 
             // btnAdd
@@ -79,14 +79,14 @@
             // 
             this.txtAge.Location = new System.Drawing.Point(289, 165);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(100, 22);
+            this.txtAge.Size = new System.Drawing.Size(121, 22);
             this.txtAge.TabIndex = 7;
             // 
             // txtManifesto
             // 
             this.txtManifesto.Location = new System.Drawing.Point(289, 209);
             this.txtManifesto.Name = "txtManifesto";
-            this.txtManifesto.Size = new System.Drawing.Size(100, 22);
+            this.txtManifesto.Size = new System.Drawing.Size(121, 22);
             this.txtManifesto.TabIndex = 8;
             // 
             // Age
@@ -208,7 +208,7 @@
             // 
             this.txtConstituencyID.Location = new System.Drawing.Point(289, 79);
             this.txtConstituencyID.Name = "txtConstituencyID";
-            this.txtConstituencyID.Size = new System.Drawing.Size(100, 22);
+            this.txtConstituencyID.Size = new System.Drawing.Size(121, 22);
             this.txtConstituencyID.TabIndex = 18;
             // 
             // CandidateForm

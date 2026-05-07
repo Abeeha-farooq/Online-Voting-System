@@ -14,6 +14,7 @@ namespace DB__PROJECT
 
         public VoterDashboard(int voterID,int constituencyId)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
              currentUserId=voterID;
             CNIC_ID = constituencyId;

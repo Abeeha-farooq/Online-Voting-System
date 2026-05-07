@@ -49,7 +49,7 @@
             // 
             this.txtTitle.Location = new System.Drawing.Point(237, 106);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(100, 22);
+            this.txtTitle.Size = new System.Drawing.Size(200, 22);
             this.txtTitle.TabIndex = 0;
             // 
             // dtDate

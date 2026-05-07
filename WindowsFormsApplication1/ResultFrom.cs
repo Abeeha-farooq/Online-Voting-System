@@ -12,6 +12,7 @@ namespace DB__PROJECT
 
         public ResultsForm()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
             this.Load += ResultsForm_Load; 
         }

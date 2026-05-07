@@ -12,6 +12,7 @@ namespace DB__PROJECT
 
         public ElectionForm()
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
 
