@@ -9,13 +9,13 @@ namespace DB__PROJECT
         SqlConnection con = new SqlConnection(
             @"Server=.\SQLEXPRESS;Database=MyDB;Integrated Security=True;");
 
-        bool isFormReady = false;   // 🔥 important flag
+        bool isFormReady = false;  
 
         public Form1()
         {
             InitializeComponent();
 
-            //  manually bind events (safe)
+            //  manually bind events 
             this.Load += Form1_Load;
             rbAdmin.CheckedChanged += rbAdmin_CheckedChanged;
             rbVoter.CheckedChanged += rbVoter_CheckedChanged;
@@ -45,7 +45,7 @@ namespace DB__PROJECT
 
         private void rbAdmin_CheckedChanged(object sender, EventArgs e)
         {
-            if (!isFormReady) return;   // 🔥 stop auto firing
+            if (!isFormReady) return;  
 
             if (rbAdmin.Checked)
             {
@@ -61,7 +61,7 @@ namespace DB__PROJECT
 
         private void rbVoter_CheckedChanged(object sender, EventArgs e)
         {
-            if (!isFormReady) return;   // 🔥 stop auto firing
+            if (!isFormReady) return;   
 
             if (rbVoter.Checked)
             {
@@ -83,7 +83,7 @@ namespace DB__PROJECT
             {
                 con.Open();
 
-                // 🔴 ADMIN LOGIN
+                // ADMIN LOGIN
                 if (rbAdmin.Checked)
                 {
                     SqlCommand cmd = new SqlCommand(
@@ -110,7 +110,7 @@ namespace DB__PROJECT
                     dr.Close();
                 }
 
-                // 🟢 VOTER LOGIN
+                // VOTER LOGIN
                 else if (rbVoter.Checked)
                 {
                     SqlCommand cmd = new SqlCommand(
@@ -133,7 +133,7 @@ namespace DB__PROJECT
                     }
                     else
                     {
-                        MessageBox.Show("Invalid CNIC ❌");
+                        MessageBox.Show("Invalid CNIC ");
                     }
 
                     dr.Close();

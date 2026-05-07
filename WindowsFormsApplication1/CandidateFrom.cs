@@ -26,7 +26,7 @@ namespace DB__PROJECT
         private void LoadParties()
         {
             SqlDataAdapter da = new SqlDataAdapter(
-                "SELECT party_id, name FROM PARTY", con);  // 🔥 FIXED
+                "SELECT party_id, name FROM PARTY", con); 
 
             DataTable dt = new DataTable();
             da.Fill(dt);

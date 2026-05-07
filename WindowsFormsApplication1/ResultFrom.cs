@@ -51,7 +51,7 @@ GROUP BY
 
                 con.Close();
 
-                // 🔥 delay ensure grid fully binds
+                //  delay ensure grid fully binds
                 dataGridView1.Refresh();
 
                 ShowWinner();

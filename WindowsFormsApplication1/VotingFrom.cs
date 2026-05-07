@@ -22,13 +22,14 @@ namespace DB__PROJECT
             this.Load += VotingForm_Load;
         }
 
-        // ================= FORM LOAD =================
+        // LOAD FORM
         private void VotingForm_Load(object sender, EventArgs e)
         {
             LoadElections();
         }
 
-        // ================= ELECTION LOAD =================
+        // LAOD ELECTIONS
+
         private void LoadElections()
         {
             SqlDataAdapter da = new SqlDataAdapter(
@@ -52,13 +53,13 @@ namespace DB__PROJECT
             }
         }
 
-        // ================= ELECTION CHANGE =================
+        //ELECTION CHANGE 
         private void cmbElection_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadCandidates();
         }
 
-        // ================= CANDIDATES LOAD =================
+        // LOAD CANDIDATES 
         private void LoadCandidates()
         {
             if (cmbElection.SelectedValue == null) return;
@@ -78,15 +79,14 @@ namespace DB__PROJECT
             DataTable dt = new DataTable();
             da.Fill(dt);
 
-            // 🔥 DEBUG (IMPORTANT)
-            MessageBox.Show("Candidates Found: " + dt.Rows.Count);
-
+            
+            
             cmbCandidate.DataSource = dt;
             cmbCandidate.DisplayMember = "name";
             cmbCandidate.ValueMember = "candidate_id";
         }
 
-        // ================= VOTE =================
+        // VOTE BUTTON CLICK EVENT
         private void btnVote_Click(object sender, EventArgs e)
         {
             if (cmbCandidate.SelectedValue == null || cmbElection.SelectedValue == null)

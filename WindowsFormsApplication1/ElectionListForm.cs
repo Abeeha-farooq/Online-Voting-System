@@ -16,7 +16,7 @@ namespace DB__PROJECT
             this.Load += ElectionListForm_Load;
         }
 
-        // ✅ FORM LOAD EVENT (FIXED NAME)
+        //  FORM LOAD EVENT
         private void ElectionListForm_Load(object sender, EventArgs e)
         {
             LoadElections();
@@ -40,7 +40,7 @@ namespace DB__PROJECT
             }
         }
 
-        // ✅ REFRESH BUTTON
+        // REFRESH BUTTON TO GET UPDATED DATA
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadElections();

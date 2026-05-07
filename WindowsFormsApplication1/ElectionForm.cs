@@ -16,6 +16,7 @@ namespace DB__PROJECT
         }
 
         // ================= ADD ELECTION =================
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -45,7 +46,7 @@ namespace DB__PROJECT
 
                 con.Close();
 
-                MessageBox.Show("Election Added ✔");
+                MessageBox.Show("Election Added ");
             }
             catch (Exception ex)
             {
@@ -54,7 +55,7 @@ namespace DB__PROJECT
             }
         }
 
-        // ================= AUTO ID =================
+        // AUTO ID 
         int GetNextId()
         {
             SqlCommand cmd = new SqlCommand(
